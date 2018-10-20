@@ -23,13 +23,6 @@ function eventSwitch(eventId){
     if(eventId == 'PullBack'){
         window.history.back(-1);
     }
-//    var delFlag = document.getElementById("delFlag");
-//    var delFlagHidden = document.getElementById("delFlagHidden")
-//    if(delFlag.checked == true){
-//        delFlagHidden.value = '';
-//    }else{
-//        delFlagHidden.value = '0';
-//    }
     form.submit();
 }
 //ユーザ登録
