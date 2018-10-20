@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context.xsd
+                        http://www.springframework.org/schema/mvc
+                        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- 自动扫描业务逻辑组件 -->
+    <context:component-scan base-package="com.attraining.salecontract">
+        <!-- 扫描时不扫描 @Controller 注解的JAVA类（控制器） -->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!-- Spring的配置文件，这里主要配置和业务逻辑有关的 -->
+    <!-- 数据源，事务控制，等等等核心业务逻辑组件 -->
+    <!-- 加载配置文件 -->
+    <context:property-placeholder
+        location="classpath:jdbc.properties" />
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+        <property name="initialSize" value="${initialSize}" />  <!--初始化连接池连接数-->
+        <property name="maxTotal" value="${maxTotal}" />  <!--连接池最大连接数-->
+        <property name="maxIdle" value="${maxIdle}" />  <!--连接池最大空闲-->
+        <property name="minIdle" value="${minIdle}" />  <!--连接池最小空闲-->
+        <property name="maxWaitMillis" value="${maxWaitMillis}" />  <!--连接最大等待时间-->
+    </bean>
+
+    <!-- 配置和MyBatis的整合 -->
+    <bean id="sqlSessionFaction" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 指定MyBatis全局配置文件的位置 -->
+        <property name="configLocation" value="classpath:mybatis-config.xml" />
+        <!-- 指定数据源 -->
+        <property name="dataSource" ref="dataSource" />
+        <!-- 指定MyBatis使用的mapping文件的位置 -->
+        <property name="mapperLocations" value="classpath:/mappers/*.xml" />
+    </bean>
+
+    <!-- 配置扫描器，将MyBatis接口的实现加入到IOC容器中 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 扫描所有的dao接口的实现，加入到IOC容器中 -->
+        <property name="basePackage" value="com.attraining.salecontract.dao" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFaction" />
+    </bean>
+
+    <!-- 事务控制的配置 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!-- 控制住数据源 -->
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!-- ##############以后研究后再详细配置############## -->
+    <!-- 开启基于注解的事务，使用xml配置形式的事务（推荐使用的配置形式） -->
+<!--     <aop:config>
+        切入点表达式
+        <aop:pointcut expression="">
+        </aop:pointcut>
+    </aop:config> -->
+    <!-- ##############以后研究后再详细配置############## -->
+</beans>

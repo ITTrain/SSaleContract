@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.attraining.salecontract.dao.ContractManageMapper">
+  <resultMap id="BaseResultMap" type="com.attraining.salecontract.bean.ContractManage">
+    <id column="contract_no" jdbcType="CHAR" property="contractNo" />
+    <result column="currency_cd" jdbcType="CHAR" property="currencyCd" />
+    <result column="unit_cd" jdbcType="CHAR" property="unitCd" />
+    <result column="status_cd" jdbcType="CHAR" property="statusCd" />
+    <result column="sale_man" jdbcType="VARCHAR" property="saleMan" />
+    <result column="sale_date" jdbcType="DATE" property="saleDate" />
+    <result column="custemer_name" jdbcType="VARCHAR" property="custemerName" />
+    <result column="shippingmark" jdbcType="CHAR" property="shippingmark" />
+    <result column="delivery_date" jdbcType="VARCHAR" property="deliveryDate" />
+    <result column="departure_cd" jdbcType="CHAR" property="departureCd" />
+    <result column="arrival_cd" jdbcType="CHAR" property="arrivalCd" />
+    <result column="trade_languagel_cd" jdbcType="CHAR" property="tradeLanguagelCd" />
+    <result column="paymentl_cd" jdbcType="CHAR" property="paymentlCd" />
+    <result column="credit_no" jdbcType="VARCHAR" property="creditNo" />
+    <result column="amounts" jdbcType="DECIMAL" property="amounts" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+    <result column="bank_cd" jdbcType="CHAR" property="bankCd" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_date" jdbcType="DATE" property="updateDate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    contract_no, currency_cd, unit_cd, status_cd, sale_man, sale_date, custemer_name, 
+    shippingmark, delivery_date, departure_cd, arrival_cd, trade_languagel_cd, paymentl_cd, 
+    credit_no, amounts, memo, bank_cd, create_user, create_date, update_user, update_date
+  </sql>
+  <select id="selectByExample" parameterType="com.attraining.salecontract.bean.ContractManageExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_tr_contract_manage
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_tr_contract_manage
+    where contract_no = #{contractNo,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_tr_contract_manage
+    where contract_no = #{contractNo,jdbcType=CHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.attraining.salecontract.bean.ContractManageExample">
+    delete from tb_tr_contract_manage
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.attraining.salecontract.bean.ContractManage">
+    insert into tb_tr_contract_manage (contract_no, currency_cd, unit_cd, 
+      status_cd, sale_man, sale_date, 
+      custemer_name, shippingmark, delivery_date, 
+      departure_cd, arrival_cd, trade_languagel_cd, 
+      paymentl_cd, credit_no, amounts, 
+      memo, bank_cd, create_user, 
+      create_date, update_user, update_date
+      )
+    values (#{contractNo,jdbcType=CHAR}, #{currencyCd,jdbcType=CHAR}, #{unitCd,jdbcType=CHAR}, 
+      #{statusCd,jdbcType=CHAR}, #{saleMan,jdbcType=VARCHAR}, #{saleDate,jdbcType=DATE}, 
+      #{custemerName,jdbcType=VARCHAR}, #{shippingmark,jdbcType=CHAR}, #{deliveryDate,jdbcType=VARCHAR}, 
+      #{departureCd,jdbcType=CHAR}, #{arrivalCd,jdbcType=CHAR}, #{tradeLanguagelCd,jdbcType=CHAR}, 
+      #{paymentlCd,jdbcType=CHAR}, #{creditNo,jdbcType=VARCHAR}, #{amounts,jdbcType=DECIMAL}, 
+      #{memo,jdbcType=VARCHAR}, #{bankCd,jdbcType=CHAR}, #{createUser,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=DATE}, #{updateUser,jdbcType=VARCHAR}, #{updateDate,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.attraining.salecontract.bean.ContractManage">
+    insert into tb_tr_contract_manage
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="contractNo != null">
+        contract_no,
+      </if>
+      <if test="currencyCd != null">
+        currency_cd,
+      </if>
+      <if test="unitCd != null">
+        unit_cd,
+      </if>
+      <if test="statusCd != null">
+        status_cd,
+      </if>
+      <if test="saleMan != null">
+        sale_man,
+      </if>
+      <if test="saleDate != null">
+        sale_date,
+      </if>
+      <if test="custemerName != null">
+        custemer_name,
+      </if>
+      <if test="shippingmark != null">
+        shippingmark,
+      </if>
+      <if test="deliveryDate != null">
+        delivery_date,
+      </if>
+      <if test="departureCd != null">
+        departure_cd,
+      </if>
+      <if test="arrivalCd != null">
+        arrival_cd,
+      </if>
+      <if test="tradeLanguagelCd != null">
+        trade_languagel_cd,
+      </if>
+      <if test="paymentlCd != null">
+        paymentl_cd,
+      </if>
+      <if test="creditNo != null">
+        credit_no,
+      </if>
+      <if test="amounts != null">
+        amounts,
+      </if>
+      <if test="memo != null">
+        memo,
+      </if>
+      <if test="bankCd != null">
+        bank_cd,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="contractNo != null">
+        #{contractNo,jdbcType=CHAR},
+      </if>
+      <if test="currencyCd != null">
+        #{currencyCd,jdbcType=CHAR},
+      </if>
+      <if test="unitCd != null">
+        #{unitCd,jdbcType=CHAR},
+      </if>
+      <if test="statusCd != null">
+        #{statusCd,jdbcType=CHAR},
+      </if>
+      <if test="saleMan != null">
+        #{saleMan,jdbcType=VARCHAR},
+      </if>
+      <if test="saleDate != null">
+        #{saleDate,jdbcType=DATE},
+      </if>
+      <if test="custemerName != null">
+        #{custemerName,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingmark != null">
+        #{shippingmark,jdbcType=CHAR},
+      </if>
+      <if test="deliveryDate != null">
+        #{deliveryDate,jdbcType=VARCHAR},
+      </if>
+      <if test="departureCd != null">
+        #{departureCd,jdbcType=CHAR},
+      </if>
+      <if test="arrivalCd != null">
+        #{arrivalCd,jdbcType=CHAR},
+      </if>
+      <if test="tradeLanguagelCd != null">
+        #{tradeLanguagelCd,jdbcType=CHAR},
+      </if>
+      <if test="paymentlCd != null">
+        #{paymentlCd,jdbcType=CHAR},
+      </if>
+      <if test="creditNo != null">
+        #{creditNo,jdbcType=VARCHAR},
+      </if>
+      <if test="amounts != null">
+        #{amounts,jdbcType=DECIMAL},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCd != null">
+        #{bankCd,jdbcType=CHAR},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.attraining.salecontract.bean.ContractManageExample" resultType="java.lang.Long">
+    select count(*) from tb_tr_contract_manage
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tb_tr_contract_manage
+    <set>
+      <if test="record.contractNo != null">
+        contract_no = #{record.contractNo,jdbcType=CHAR},
+      </if>
+      <if test="record.currencyCd != null">
+        currency_cd = #{record.currencyCd,jdbcType=CHAR},
+      </if>
+      <if test="record.unitCd != null">
+        unit_cd = #{record.unitCd,jdbcType=CHAR},
+      </if>
+      <if test="record.statusCd != null">
+        status_cd = #{record.statusCd,jdbcType=CHAR},
+      </if>
+      <if test="record.saleMan != null">
+        sale_man = #{record.saleMan,jdbcType=VARCHAR},
+      </if>
+      <if test="record.saleDate != null">
+        sale_date = #{record.saleDate,jdbcType=DATE},
+      </if>
+      <if test="record.custemerName != null">
+        custemer_name = #{record.custemerName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shippingmark != null">
+        shippingmark = #{record.shippingmark,jdbcType=CHAR},
+      </if>
+      <if test="record.deliveryDate != null">
+        delivery_date = #{record.deliveryDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.departureCd != null">
+        departure_cd = #{record.departureCd,jdbcType=CHAR},
+      </if>
+      <if test="record.arrivalCd != null">
+        arrival_cd = #{record.arrivalCd,jdbcType=CHAR},
+      </if>
+      <if test="record.tradeLanguagelCd != null">
+        trade_languagel_cd = #{record.tradeLanguagelCd,jdbcType=CHAR},
+      </if>
+      <if test="record.paymentlCd != null">
+        paymentl_cd = #{record.paymentlCd,jdbcType=CHAR},
+      </if>
+      <if test="record.creditNo != null">
+        credit_no = #{record.creditNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.amounts != null">
+        amounts = #{record.amounts,jdbcType=DECIMAL},
+      </if>
+      <if test="record.memo != null">
+        memo = #{record.memo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankCd != null">
+        bank_cd = #{record.bankCd,jdbcType=CHAR},
+      </if>
+      <if test="record.createUser != null">
+        create_user = #{record.createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createDate != null">
+        create_date = #{record.createDate,jdbcType=DATE},
+      </if>
+      <if test="record.updateUser != null">
+        update_user = #{record.updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateDate != null">
+        update_date = #{record.updateDate,jdbcType=DATE},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tb_tr_contract_manage
+    set contract_no = #{record.contractNo,jdbcType=CHAR},
+      currency_cd = #{record.currencyCd,jdbcType=CHAR},
+      unit_cd = #{record.unitCd,jdbcType=CHAR},
+      status_cd = #{record.statusCd,jdbcType=CHAR},
+      sale_man = #{record.saleMan,jdbcType=VARCHAR},
+      sale_date = #{record.saleDate,jdbcType=DATE},
+      custemer_name = #{record.custemerName,jdbcType=VARCHAR},
+      shippingmark = #{record.shippingmark,jdbcType=CHAR},
+      delivery_date = #{record.deliveryDate,jdbcType=VARCHAR},
+      departure_cd = #{record.departureCd,jdbcType=CHAR},
+      arrival_cd = #{record.arrivalCd,jdbcType=CHAR},
+      trade_languagel_cd = #{record.tradeLanguagelCd,jdbcType=CHAR},
+      paymentl_cd = #{record.paymentlCd,jdbcType=CHAR},
+      credit_no = #{record.creditNo,jdbcType=VARCHAR},
+      amounts = #{record.amounts,jdbcType=DECIMAL},
+      memo = #{record.memo,jdbcType=VARCHAR},
+      bank_cd = #{record.bankCd,jdbcType=CHAR},
+      create_user = #{record.createUser,jdbcType=VARCHAR},
+      create_date = #{record.createDate,jdbcType=DATE},
+      update_user = #{record.updateUser,jdbcType=VARCHAR},
+      update_date = #{record.updateDate,jdbcType=DATE}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.attraining.salecontract.bean.ContractManage">
+    update tb_tr_contract_manage
+    <set>
+      <if test="currencyCd != null">
+        currency_cd = #{currencyCd,jdbcType=CHAR},
+      </if>
+      <if test="unitCd != null">
+        unit_cd = #{unitCd,jdbcType=CHAR},
+      </if>
+      <if test="statusCd != null">
+        status_cd = #{statusCd,jdbcType=CHAR},
+      </if>
+      <if test="saleMan != null">
+        sale_man = #{saleMan,jdbcType=VARCHAR},
+      </if>
+      <if test="saleDate != null">
+        sale_date = #{saleDate,jdbcType=DATE},
+      </if>
+      <if test="custemerName != null">
+        custemer_name = #{custemerName,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingmark != null">
+        shippingmark = #{shippingmark,jdbcType=CHAR},
+      </if>
+      <if test="deliveryDate != null">
+        delivery_date = #{deliveryDate,jdbcType=VARCHAR},
+      </if>
+      <if test="departureCd != null">
+        departure_cd = #{departureCd,jdbcType=CHAR},
+      </if>
+      <if test="arrivalCd != null">
+        arrival_cd = #{arrivalCd,jdbcType=CHAR},
+      </if>
+      <if test="tradeLanguagelCd != null">
+        trade_languagel_cd = #{tradeLanguagelCd,jdbcType=CHAR},
+      </if>
+      <if test="paymentlCd != null">
+        paymentl_cd = #{paymentlCd,jdbcType=CHAR},
+      </if>
+      <if test="creditNo != null">
+        credit_no = #{creditNo,jdbcType=VARCHAR},
+      </if>
+      <if test="amounts != null">
+        amounts = #{amounts,jdbcType=DECIMAL},
+      </if>
+      <if test="memo != null">
+        memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCd != null">
+        bank_cd = #{bankCd,jdbcType=CHAR},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=DATE},
+      </if>
+    </set>
+    where contract_no = #{contractNo,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.attraining.salecontract.bean.ContractManage">
+    update tb_tr_contract_manage
+    set currency_cd = #{currencyCd,jdbcType=CHAR},
+      unit_cd = #{unitCd,jdbcType=CHAR},
+      status_cd = #{statusCd,jdbcType=CHAR},
+      sale_man = #{saleMan,jdbcType=VARCHAR},
+      sale_date = #{saleDate,jdbcType=DATE},
+      custemer_name = #{custemerName,jdbcType=VARCHAR},
+      shippingmark = #{shippingmark,jdbcType=CHAR},
+      delivery_date = #{deliveryDate,jdbcType=VARCHAR},
+      departure_cd = #{departureCd,jdbcType=CHAR},
+      arrival_cd = #{arrivalCd,jdbcType=CHAR},
+      trade_languagel_cd = #{tradeLanguagelCd,jdbcType=CHAR},
+      paymentl_cd = #{paymentlCd,jdbcType=CHAR},
+      credit_no = #{creditNo,jdbcType=VARCHAR},
+      amounts = #{amounts,jdbcType=DECIMAL},
+      memo = #{memo,jdbcType=VARCHAR},
+      bank_cd = #{bankCd,jdbcType=CHAR},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=DATE}
+    where contract_no = #{contractNo,jdbcType=CHAR}
+  </update>
+</mapper>
