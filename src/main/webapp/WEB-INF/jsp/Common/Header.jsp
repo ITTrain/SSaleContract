@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <html>
     <head>
         <jsp:include page="/WEB-INF/jsp/Common/Meta.jsp"/>
@@ -56,9 +57,14 @@
                 <div style="WIDTH: 325px; HEIGHT: 40px" id=ctl00_panelMsg class=panelGrid>
                    <FIELDSET>
                        <LEGEND>システム情報 </LEGEND>&nbsp;
-                       <span
-                          style="COLOR: red" id=errorMessage class=MsgStyle>${message.message}
-                       </span>
+                       <c:choose>
+                              <c:when test="${fn:contains(message.message,'I')}">
+                                     <span style="COLOR: black" id=errorMessage class=MsgStyle>${fn:replace(message.message, "[I]", "")}</span>
+                              </c:when>
+                              <c:otherwise>
+                                     <span style="COLOR: red" id=errorMessage class=MsgStyle>${fn:replace(message.message, "[E]", "")}</span>
+                              </c:otherwise>
+                       </c:choose>
                    </FIELDSET>
                 </div>
             </div>
