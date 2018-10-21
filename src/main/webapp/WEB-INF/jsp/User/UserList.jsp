@@ -95,11 +95,10 @@
                 href="javascript:__doPostBack('ctl00$mainContent$gvList','Sort$更新日')">更新日</A></TH>
         </TR>
         <c:forEach items="${userInfoList}" var="userInfo" varStatus="st">
-           <TR class=gvRow
-               onclick="if(window.oldtr!=null){window.oldtr.runtimeStyle.cssText='';}this.runtimeStyle.cssText='background-color:#CCCCFF';window.oldtr=this;">
-               <TD style="WIDTH: 8%" align=center><A
-                   id=ctl00_mainContent_gvList_ctl02_lnkEdit href="UserUpdate.htm">編集</A>
-               </TD>
+           <TR class=gvRow>
+                <TD style="WIDTH: 8%" align=center>
+                    <A href="javascript:void(0)" id=ctl00_mainContent_gvList_ctl02_lnkEdit onClick="eventSwitch('UserUpdateInit','${userInfo.userId}')">編集</A>
+                </TD>
                <TD style="WIDTH: 8%" align=center><A
                    style="TEXT-DECORATION: underline"
                    id=ctl00_mainContent_gvList_ctl02_lnkUserID
@@ -130,6 +129,7 @@
 </DIV>
 </DIV>
 <INPUT id=ctl00_hidTime name=ctl00$hidTime value=2014/02/17 15:48:11 type=hidden />
+<INPUT id="updateUserId" name="updateUserId"  type=hidden />
 </DIV>
 </FORM>
 <!-- フッター -->

@@ -1,6 +1,6 @@
 /* ****************************/
-/*ユーザー一覧画面用JavaScript                    */
-/*    UserList.js                               */
+/*ユーザー更新画面用JavaScript         */
+/*    UserUpdate.js                          */
 /* ****************************/
     function __doPostBack(eventTarget, eventArgument) {
         if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
@@ -9,7 +9,7 @@
             theForm.submit();
         }
     }
-    function eventSwitch(eventId,userId){
+    function eventSwitch(eventId){
         var form = document.getElementById("userForm");
         if(eventId == 'UserSearch'){
             form.action = "UserSearch";
@@ -25,10 +25,8 @@
             form.action = "UserAddInit";
         }
         // ユーザー「編集」リンク押下
-        if(eventId == 'UserUpdateInit'){
-            var updateUserId = document.getElementById("updateUserId");
-            updateUserId.value = userId;
-            form.action = "UserUpdateInit";
+        if(eventId == 'UserUpdate'){
+            form.action = "UserUpdate";
         }
         form.submit();
     }

@@ -39,7 +39,17 @@ public interface SUserService {
      * </pre>
      */
     List<UserInfo> getUserInfo(String userId, String userName, String authorityCd, String delFlag);
-    
+
+    /**
+     * <pre>
+     * [機 能]ユーザ情報検索処理
+     * [説 明]ユーザーIDにより、ユーザ情報検索処理
+     * @param
+     * @return UserInfo ユーザ情報
+     * </pre>
+     */
+    UserInfo getUserInfoByPrimaryKey(String userId);
+
     /**
      * <pre>
      * [機 能]ユーザ情報作成処理
@@ -49,5 +59,4 @@ public interface SUserService {
      * </pre>
      */
     void addUserInfo(UserInfo userInfo);
-
 }
