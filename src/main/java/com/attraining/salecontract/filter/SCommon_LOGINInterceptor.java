@@ -24,7 +24,7 @@ public class SCommon_LOGINInterceptor implements HandlerInterceptor {
         // URLに非空かつ、非ログイン判断
         if (StringUtils.isNotBlank(url) && url.toLowerCase().indexOf("login") < 0) {
             // セッション中身にユーザー名判断
-            if (null == request.getSession().getAttribute("userName")) {
+            if (null == request.getSession().getAttribute("loginUserInfo")) {
                 String localUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
                         + request.getContextPath() + "/";
                 response.sendRedirect(localUrl + "Login");

@@ -73,7 +73,7 @@ public class SUser_ADDController {
      * </pre>
      */
     @RequestMapping("UserAdd")
-    public ModelAndView userAdd(UserInfo userInfo, ModelAndView mv, String loginUserName) {
+    public ModelAndView userAdd(UserInfo userInfo, ModelAndView mv, HttpSession session) {
         // ユーザ検索処理
     	List<UserInfo> userInfoList = sUserService.getUserInfo(userInfo.getUserId(), "", "", "");
     	if(userInfoList != null && userInfoList.size() > 0) {
@@ -81,12 +81,13 @@ public class SUser_ADDController {
     		mv.setViewName("User/UserAdd");
     		return mv;
     	}
+    	UserInfo loginUserInfo = (UserInfo)session.getAttribute("loginUserInfo");
     	//削除フラグ"0"固定
     	userInfo.setDelFlg("0");
     	//作成者設定
-    	userInfo.setCreateUser(loginUserName);
+    	userInfo.setCreateUser(loginUserInfo.getUserId());
     	//更新者設定
-    	userInfo.setUpdateUser(loginUserName);
+    	userInfo.setUpdateUser(loginUserInfo.getUserId());
     	//ユーザ登録実行
     	sUserService.addUserInfo(userInfo);
         // ユーザー登録画面へ遷移する

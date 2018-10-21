@@ -63,7 +63,7 @@ public class SCommon_LOGINController {
             // メッセージを設定
             mv.addObject("message", new Message("I", PropertiesFileLoader.getProperty("info.system.normal")));
             // ユーザー名をセッションインスタンスに設定
-            session.setAttribute("userName", userInfoList.get(0).getUserName());
+            session.setAttribute("loginUserInfo", userInfoList.get(0));
             // メニュー画面遷移前処理
             //mv.setView(new RedirectView("MainMenu"));
             mv.setViewName("Common/MainMenu");

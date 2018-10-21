@@ -131,7 +131,14 @@
   </select>
     <select id="getUserList"  resultMap="BaseResultMap">
     select
-            user_name
+         user_id
+        ,user_name
+        ,password
+        ,tel_number
+        ,mail_address
+        ,authority_cd
+        ,memo
+        ,del_flg
     from tb_tr_user_info
     where user_id = #{userId}
               and password=#{password}

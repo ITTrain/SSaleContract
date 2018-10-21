@@ -14,7 +14,7 @@
                     <div class=UserNotice>
                         <div style="WIDTH: 50%; FLOAT: left">
                             <span id=ctl00_lblUserID>ユーザー名：</span><span id=ctl00_lblUserName>
-                                ${sessionScope.userName}
+                                ${sessionScope.loginUserInfo.userName}
                            </span> &nbsp; <span id=ctl00_lblTime></span>
                         </div>
                         <div style="WIDTH: 50%; FLOAT: left">
