@@ -38,22 +38,35 @@ public class SUserServiceImpl  implements SUserService{
      * @return int ログインユーザ件数
      * </pre>
      */
-public List<UserInfo>  getUserInfoList(String userId, String password) {
+	public List<UserInfo> getUserInfoList(String userId, String password) {
 
-    List<UserInfo> userInfoList = userInfoMapper.getUserList(userId, password);
-        return userInfoList;
-    }
-/**
- * <pre>
- * [機 能]ユーザ情報検索処理
- * [説 明]ユーザ情報検索処理
- * @param
- * @return  List<UserInfo> ユーザ情報リスト
- * </pre>
- */
-@Transactional(readOnly=true)
-public List<UserInfo> getUserInfo(String userId, String userName, String authorityCd, String delFlag){
-    List<UserInfo> userInfoList = userInfoMapper.selectUserInfo(userId, userName, authorityCd, delFlag);
-    return userInfoList;
-}
+		List<UserInfo> userInfoList = userInfoMapper.getUserList(userId, password);
+		return userInfoList;
+	}
+
+	/**
+	 * <pre>
+	 * [機 能]ユーザ情報検索処理
+	 * [説 明]ユーザ情報検索処理
+	 * &#64;param
+	 * &#64;return  List<UserInfo> ユーザ情報リスト
+	 * </pre>
+	 */
+	@Transactional(readOnly = true)
+	public List<UserInfo> getUserInfo(String userId, String userName, String authorityCd, String delFlag) {
+		List<UserInfo> userInfoList = userInfoMapper.selectUserInfo(userId, userName, authorityCd, delFlag);
+		return userInfoList;
+	}
+	
+	/**
+     * <pre>
+     * [機 能]ユーザ情報作成処理
+     * [説 明]ユーザ情報作成処理
+     * @param userInfo
+     * @return
+     * </pre>
+     */
+	public void addUserInfo(UserInfo userInfo) {
+		userInfoMapper.insert(userInfo);
+	}	
 }

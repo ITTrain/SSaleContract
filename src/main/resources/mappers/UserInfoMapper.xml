@@ -177,7 +177,7 @@
     values (#{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
       #{telNumber,jdbcType=VARCHAR}, #{mailAddress,jdbcType=VARCHAR}, #{authorityCd,jdbcType=CHAR},
       #{memo,jdbcType=VARCHAR}, #{delFlg,jdbcType=CHAR}, #{createUser,jdbcType=VARCHAR},
-      #{createDate,jdbcType=DATE}, #{updateUser,jdbcType=VARCHAR}, #{updateDate,jdbcType=DATE}
+      sysdate(), #{updateUser,jdbcType=VARCHAR}, sysdate()
       )
   </insert>
   <insert id="insertSelective" parameterType="com.attraining.salecontract.bean.UserInfo">

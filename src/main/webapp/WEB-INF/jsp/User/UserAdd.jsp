@@ -122,6 +122,7 @@
 
 <INPUT id=ctl00_hidTime name=ctl00$hidTime
     value=2014/02/17 16:35:20 type=hidden>
+<input type="hidden" id="loginUserName" name="loginUserName" value="${sessionScope.userName}">
 </FORM>
 <!-- フッター -->
 <jsp:include page="../Common/Footer.jsp"/>

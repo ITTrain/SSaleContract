@@ -39,5 +39,15 @@ public interface SUserService {
      * </pre>
      */
     List<UserInfo> getUserInfo(String userId, String userName, String authorityCd, String delFlag);
+    
+    /**
+     * <pre>
+     * [機 能]ユーザ情報作成処理
+     * [説 明]ユーザ情報作成処理
+     * @param userInfo
+     * @return
+     * </pre>
+     */
+    void addUserInfo(UserInfo userInfo);
 
 }

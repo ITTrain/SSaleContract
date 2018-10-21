@@ -9,9 +9,12 @@ package com.attraining.salecontract.controller;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.ServletRequestDataBinder;
@@ -20,6 +23,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.attraining.salecontract.bean.UserInfo;
+import com.attraining.salecontract.common.Message;
+import com.attraining.salecontract.common.PropertiesFileLoader;
+import com.attraining.salecontract.service.SUserService;
 
 /**
  * <pre>
@@ -33,8 +39,8 @@ public class SUser_ADDController {
 
 //    @Autowired
 //    private SMstInfoService sMstInfoService;
-//    @Autowired
-//    private SUserService sUserService;
+    @Autowired
+    private SUserService sUserService;
 
 
     /**
@@ -67,11 +73,22 @@ public class SUser_ADDController {
      * </pre>
      */
     @RequestMapping("UserAdd")
-    public ModelAndView  userAdd(UserInfo userInfo, ModelAndView mv) {
-        // ユーザーデータDTOインスタンスを初期化する
-//        UserInfo userInfo = mv.
-//        mv.addObject("userInfo", userInfo);
-        //メッセージを初期化する
+    public ModelAndView userAdd(UserInfo userInfo, ModelAndView mv, String loginUserName) {
+        // ユーザ検索処理
+    	List<UserInfo> userInfoList = sUserService.getUserInfo(userInfo.getUserId(), "", "", "");
+    	if(userInfoList != null && userInfoList.size() > 0) {
+    		mv.addObject("message", new Message("E", PropertiesFileLoader.getProperty("errors.useradd_exist")));
+    		mv.setViewName("User/UserAdd");
+    		return mv;
+    	}
+    	//削除フラグ"0"固定
+    	userInfo.setDelFlg("0");
+    	//作成者設定
+    	userInfo.setCreateUser(loginUserName);
+    	//更新者設定
+    	userInfo.setUpdateUser(loginUserName);
+    	//ユーザ登録実行
+    	sUserService.addUserInfo(userInfo);
         // ユーザー登録画面へ遷移する
         mv.setViewName("User/UserAdd");
         return mv;

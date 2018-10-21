@@ -15,15 +15,16 @@ function hide(id){
 function eventSwitch(eventId){
     var form = document.getElementById("userForm");
     if(eventId == 'UserAdd'){
-        form.action = "UserAdd";
         if(!userInfoCheck()){
             return;
         }
+        form.action = "UserAdd";
+        form.submit();
     }
     if(eventId == 'PullBack'){
         window.history.back(-1);
     }
-    form.submit();
+    
 }
 //ユーザ登録
 function userInfoCheck(){
@@ -33,16 +34,21 @@ function userInfoCheck(){
     if(!passwordSameCheck()){
         return false;
     }
-    if(isNaN(document.getElementById("telNumber").value)){
-        document.getElementById("errorMessage").innerHTML = "電話番号が数字ではない";
-        return false;
+    var telNumber = document.getElementById("telNumber").value;
+    if(telNumber!=null && telNumber!=""){
+    	if(isNaN(telNumber)){
+            document.getElementById("errorMessage").innerHTML = "電話番号が数字ではない";
+            return false;
+        }
     }
-    if(!mailChk(document.getElementById("mailAddress").value)){
-        document.getElementById("errorMessage").innerHTML = "メール形式不正";
-        return false;
+    var mailAddress = document.getElementById("mailAddress").value;
+    if(mailAddress!=null && mailAddress!=""){
+    	if(!mailChk(mailAddress)){
+            document.getElementById("errorMessage").innerHTML = "メール形式不正";
+            return false;
+        }
     }
-//    var form = document.getElementById("userForm");
-//    form.submit();
+    return true;
 }
 
 //必須入力チェック
