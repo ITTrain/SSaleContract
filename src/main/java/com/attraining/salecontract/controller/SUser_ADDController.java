@@ -90,8 +90,8 @@ public class SUser_ADDController {
     	userInfo.setUpdateUser(loginUserInfo.getUserId());
     	//ユーザ登録実行
     	sUserService.addUserInfo(userInfo);
-        // ユーザー登録画面へ遷移する
-        mv.setViewName("User/UserAdd");
+        // ユーザー検索画面へ遷移する
+        mv.setViewName("User/UserSearch");
         return mv;
     }
     @InitBinder
