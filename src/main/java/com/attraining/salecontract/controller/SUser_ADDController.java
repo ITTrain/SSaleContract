@@ -21,7 +21,6 @@ import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.attraining.salecontract.bean.UserInfo;
 import com.attraining.salecontract.common.Message;
@@ -74,7 +73,7 @@ public class SUser_ADDController {
      * </pre>
      */
     @RequestMapping("UserAdd")
-    public ModelAndView userAdd(UserInfo userInfo, ModelAndView mv, HttpSession session, RedirectAttributes rAttr) {
+    public ModelAndView userAdd(UserInfo userInfo, ModelAndView mv, HttpSession session) {
         // ユーザ検索処理
     	List<UserInfo> userInfoList = sUserService.getUserInfo(userInfo.getUserId(), "", "", "");
     	if(userInfoList != null && userInfoList.size() > 0) {
@@ -91,10 +90,9 @@ public class SUser_ADDController {
     	userInfo.setUpdateUser(loginUserInfo.getUserId());
     	//ユーザ登録実行
     	sUserService.addUserInfo(userInfo);
-    	// Controller間パラメータ引き渡す。
-    	//rAttr.addFlashAttribute("param", "1");
         // ユーザー検索画面へ遷移する
-        return new ModelAndView("redirect:UserSearch");
+        mv.setViewName("User/UserSearch");
+        return mv;
     }
     @InitBinder
     protected void initBinder(HttpServletRequest request, ServletRequestDataBinder binder) throws Exception {
