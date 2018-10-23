@@ -38,9 +38,9 @@
             <TD style="WIDTH: 170px"><SPAN id=ctl00_mainContent_lblAcessGrp
                 class=inputlbl>権限</SPAN><BR>
             <SELECT id=ctl00_mainContent_ddlAcessGrp class=ddlBlack name="userRoot" id="userRoot">
-                <OPTION selected value=""></OPTION>
+                <option selected value=""></option>
                 <c:forEach items="${sessionScope.mstAuthorityInfoList}" var="c" varStatus="st">
-                    <option value="${c.authorityCd}">${c.authorityName}</option>
+                    <option value="${c.authorityCd}" <c:if test="${authorityCd == c.authorityCd}"> selected</c:if>>${c.authorityName}</option>
                 </c:forEach>
             </SELECT>
             <input type="hidden" value="" id="root"/>

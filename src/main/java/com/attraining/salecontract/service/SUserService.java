@@ -59,4 +59,14 @@ public interface SUserService {
      * </pre>
      */
     void addUserInfo(UserInfo userInfo);
+
+    /**
+     * <pre>
+     * [機 能]ユーザ情報更新処理
+     * [説 明]ユーザ情報更新処理
+     * @param userInfo
+     * @return
+     * </pre>
+     */
+    int updateUserInfo(UserInfo userInfo);
 }

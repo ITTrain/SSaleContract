@@ -83,4 +83,16 @@ public class SUserServiceImpl  implements SUserService{
     public void addUserInfo(UserInfo userInfo) {
         userInfoMapper.insert(userInfo);
     }
+
+    /**
+     * <pre>
+     * [機 能]ユーザ情報更新処理
+     * [説 明]ユーザ情報更新処理
+     * @param userInfo
+     * @return
+     * </pre>
+     */
+    public int updateUserInfo(UserInfo userInfo) {
+        return userInfoMapper.updateByPrimaryKey(userInfo);
+    }
 }

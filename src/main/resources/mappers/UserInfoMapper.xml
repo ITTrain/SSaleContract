@@ -382,10 +382,10 @@
       authority_cd = #{authorityCd,jdbcType=CHAR},
       memo = #{memo,jdbcType=VARCHAR},
       del_flg = #{delFlg,jdbcType=CHAR},
-      create_user = #{createUser,jdbcType=VARCHAR},
-      create_date = #{createDate,jdbcType=DATE},
+<!--       create_user = #{createUser,jdbcType=VARCHAR}, -->
+<!--       create_date = #{createDate,jdbcType=DATE}, -->
       update_user = #{updateUser,jdbcType=VARCHAR},
-      update_date = #{updateDate,jdbcType=DATE}
+      update_date = sysdate()
     where user_id = #{userId,jdbcType=VARCHAR}
   </update>
 </mapper>

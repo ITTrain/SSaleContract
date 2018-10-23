@@ -40,7 +40,7 @@
                 <select id="ctl00_mainContent_ddlAcessGrp" class=ddlBlack name="userRoot">
                     <option selected value=""></option>
                     <c:forEach items="${mstAuthorityInfoList}" var="c" varStatus="st">
-                        <option value="${c.authorityCd}">${c.authorityName}</option>
+                        <option value="${c.authorityCd}" <c:if test="${userInfo.authorityCd == c.authorityCd}"> selected</c:if>>${c.authorityName}</option>
                     </c:forEach>
                 </select>
                 </TD>
