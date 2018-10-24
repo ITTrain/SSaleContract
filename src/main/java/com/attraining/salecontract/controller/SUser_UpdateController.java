@@ -95,7 +95,7 @@ public class SUser_UpdateController {
             attr.addFlashAttribute("param", "1");
             // ユーザー検索画面へ遷移する
             mv = new ModelAndView("redirect:UserSearch");
-            //mv.addObject("message", new Message("I", PropertiesFileLoader.getProperty("info.userupdate_success")));
+            session.setAttribute("result", "info.userupdate_success");
         }else {
             mv.addObject("message", new Message("E", PropertiesFileLoader.getProperty("errors.userupdate_update")));
             mv.setViewName("User/UserAdd");

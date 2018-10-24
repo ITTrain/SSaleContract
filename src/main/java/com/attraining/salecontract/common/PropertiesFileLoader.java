@@ -91,7 +91,7 @@ public class PropertiesFileLoader {
      * @param sub 置き換え文字の配列　(最大5個まで。5個以上の場合、空白を返却）
      * @return 置き換え後プロパティ値
      */
-    public String getProperty(String key, String[] sub) {
+    public static String getProperty(String key, String[] sub) {
         String retMsg = "";
         String msg = getValue(key);
         if(sub.length == 1){

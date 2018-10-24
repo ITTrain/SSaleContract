@@ -47,6 +47,9 @@ public class SUser_SEARCHController {
      */
     @RequestMapping("UserSearchInit")
     public ModelAndView  userSearchInit(ModelAndView mv, HttpSession session) {
+        // メッセージ情報をクリア
+        session.removeAttribute("message");
+        session.removeAttribute("result");
         // マスタ情報を取得
         List<MstAuthorityInfo> mstAuthorityInfoList = sMstInfoService.getMstAuthorityInfo(null);
         // 権限情報を設定
@@ -70,19 +73,34 @@ public class SUser_SEARCHController {
      * </pre>
      */
     @RequestMapping("UserSearch")
-    public ModelAndView  userSearch(ModelAndView mv, String userId, String userName, String userRoot, String delFlag) {
+    public ModelAndView  userSearch(ModelAndView mv, HttpSession session, String userId, String userName, String userRoot, String delFlag) {
         // ユーザー情報の取得
         List<UserInfo> userInfoList = sUserService.getUserInfo(userId, userName, userRoot, delFlag);
-
+        // 検索結果がいない場合、メッセージを設定
         if(userInfoList.size()==0) {
-            mv.addObject("message", new Message("I", PropertiesFileLoader.getProperty("errors.salecontractupdate.nodata" )));
+            String[] param = {"ユーザー情報"};
+            mv.addObject("message", new Message("E", PropertiesFileLoader.getProperty("errors.salecontractupdate.nodata", param)));
+        }else {
+            mv.addObject("message", new Message("I", PropertiesFileLoader.getProperty("info.usersearch_success")));
         }
-        //
+        // 追加処理成功した場合、メッセージを設定
+        if("info.useradd_success".equals(session.getAttribute("result"))) {
+            mv.addObject("message", new Message("I", PropertiesFileLoader.getProperty("info.useradd_success")));
+        }
+        // 更新処理成功した場合、メッセージを設定
+        if("info.userupdate_success".equals(session.getAttribute("result"))) {
+            mv.addObject("message", new Message("I", PropertiesFileLoader.getProperty("info.userupdate_success")));
+        }
+        // 削除処理成功した場合、メッセージを設定
+        if("info.userdelete_success".equals(session.getAttribute("result"))) {
+            mv.addObject("message", new Message("I", PropertiesFileLoader.getProperty("info.userdelete_success")));
+        }
         mv.addObject("userId", userId);
         mv.addObject("userName", userName);
         mv.addObject("authorityCd", userRoot);
         mv.addObject("delFlag", delFlag);
         mv.addObject("userInfoList", userInfoList);
+        session.removeAttribute("result");
         // ユーザー検索画面IDを設定
         mv.setViewName("User/UserList");
         return mv;

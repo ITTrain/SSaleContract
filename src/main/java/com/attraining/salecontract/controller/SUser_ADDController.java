@@ -76,26 +76,28 @@ public class SUser_ADDController {
     @RequestMapping("UserAdd")
     public ModelAndView userAdd(UserInfo userInfo, ModelAndView mv, HttpSession session, RedirectAttributes attr) {
         // ユーザ検索処理
-    	List<UserInfo> userInfoList = sUserService.getUserInfo(userInfo.getUserId(), "", "", "");
-    	if(userInfoList != null && userInfoList.size() > 0) {
-    		mv.addObject("message", new Message("E", PropertiesFileLoader.getProperty("errors.useradd_exist")));
-    		mv.setViewName("User/UserAdd");
-    		return mv;
-    	}
-    	UserInfo loginUserInfo = (UserInfo)session.getAttribute("loginUserInfo");
-    	//削除フラグ"0"固定
-    	userInfo.setDelFlg("0");
-    	//作成者設定
-    	userInfo.setCreateUser(loginUserInfo.getUserId());
-    	//更新者設定
-    	userInfo.setUpdateUser(loginUserInfo.getUserId());
-    	//ユーザ登録実行
-    	sUserService.addUserInfo(userInfo);
-    	//Controller間パラメータ引き渡し
-    	attr.addFlashAttribute("param", "1");
+        List<UserInfo> userInfoList = sUserService.getUserInfo(userInfo.getUserId(), "", "", "");
+        if(userInfoList != null && userInfoList.size() > 0) {
+            mv.addObject("message", new Message("E", PropertiesFileLoader.getProperty("errors.useradd_exist")));
+            mv.setViewName("User/UserAdd");
+            return mv;
+        }
+        UserInfo loginUserInfo = (UserInfo)session.getAttribute("loginUserInfo");
+        //削除フラグ"0"固定
+        userInfo.setDelFlg("0");
+        //作成者設定
+        userInfo.setCreateUser(loginUserInfo.getUserId());
+        //更新者設定
+        userInfo.setUpdateUser(loginUserInfo.getUserId());
+        //ユーザ登録実行
+        sUserService.addUserInfo(userInfo);
+        //Controller間パラメータ引き渡し
+        attr.addFlashAttribute("param", "1");
         // ユーザー検索画面へ遷移する
 //        mv.setViewName("User/UserSearch");
+        session.setAttribute("result", "info.useradd_success");
         return new ModelAndView("redirect:UserSearch");
+
     }
     @InitBinder
     protected void initBinder(HttpServletRequest request, ServletRequestDataBinder binder) throws Exception {
