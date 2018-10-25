@@ -30,5 +30,11 @@
             updateUserId.value = userId;
             form.action = "UserUpdateInit";
         }
+        if(eventId == 'UserDetail'){
+            var updateUserId = document.getElementById("updateUserId");
+            updateUserId.value = userId;
+            form.action = "UserDetail";
+        }
+        
         form.submit();
     }

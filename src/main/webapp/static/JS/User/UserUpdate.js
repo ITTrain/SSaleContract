@@ -22,6 +22,9 @@
                 delFlgHidden.value = '0';
             }
             form.action = "UserUpdate";
+            form.submit();
         }
-        form.submit();
+        if(eventId == 'PullBack'){
+            window.history.back(-1);
+        }
     }

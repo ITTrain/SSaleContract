@@ -26,7 +26,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.attraining.salecontract.bean.UserInfo;
 import com.attraining.salecontract.common.Message;
 import com.attraining.salecontract.common.PropertiesFileLoader;
-import com.attraining.salecontract.service.SMstInfoService;
 import com.attraining.salecontract.service.SUserService;
 
 /**
@@ -39,8 +38,6 @@ import com.attraining.salecontract.service.SUserService;
 @Controller
 public class SUser_UpdateController {
 
-    @Autowired
-    private SMstInfoService sMstInfoService;
     @Autowired
     private SUserService sUserService;
 
