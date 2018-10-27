@@ -98,6 +98,7 @@
            <TR class=gvRow>
                 <TD style="WIDTH: 8%" align=center>
                     <A href="javascript:void(0)" id=ctl00_mainContent_gvList_ctl02_lnkEdit onClick="eventSwitch('UserUpdateInit', '${userInfo.userId}')">編集</A>
+                    <A href="javascript:void(0)" id=ctl00_mainContent_gvList_ctl02_lnkDelete onClick="eventSwitch('UserDelete', '${userInfo.userId}')">削除</A>
                 </TD>
                <TD style="WIDTH: 8%" align=center>
                     <A href="javascript:void(0)" style="TEXT-DECORATION: underline" id=ctl00_mainContent_gvList_ctl02_lnkUserID onClick="eventSwitch('UserDetail', '${userInfo.userId}')">${userInfo.userId}</A>

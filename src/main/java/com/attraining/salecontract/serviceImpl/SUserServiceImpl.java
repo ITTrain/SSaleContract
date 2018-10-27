@@ -95,4 +95,16 @@ public class SUserServiceImpl  implements SUserService{
     public int updateUserInfo(UserInfo userInfo) {
         return userInfoMapper.updateByPrimaryKey(userInfo);
     }
+
+    /**
+     * <pre>
+     * [機 能]ユーザ情報削除処理
+     * [説 明]ユーザ情報削除処理
+     * @param userInfo
+     * @return
+     * </pre>
+     */
+    public int deleteUserInfo(String  userId) {
+         return userInfoMapper.deleteByPrimaryKey(userId);
+    }
 }

@@ -69,4 +69,14 @@ public interface SUserService {
      * </pre>
      */
     int updateUserInfo(UserInfo userInfo);
+
+    /**
+     * <pre>
+     * [機 能]ユーザ情報削除処理
+     * [説 明]ユーザ情報削除処理
+     * @param userInfo
+     * @return
+     * </pre>
+     */
+    int deleteUserInfo(String  userId);
 }
