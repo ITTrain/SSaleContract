@@ -19,7 +19,7 @@
                            </span> &nbsp; <span id=ctl00_lblTime></span>
                         </div>
                         <div style="WIDTH: 50%; FLOAT: left">
-                            <A href="javascript:void(0);" id=ctl00_lnkHelp class=LogHelp onClick="headLinkSwitch('Help');">ヘルプ</A>
+                            <A href="javascript:void(0);" id=ctl00_lnkHelp class=LogHelp onClick="headLinkSwitch('Help');" style="">ヘルプ</A>
                             <A href="javascript:void(0);" id=ctl00_lnkReturn class=LogReturn onClick="headLinkSwitch('Common/MainMenu');">メイン画面</A>
                             <A href="javascript:void(0);" id=ctl00_lnkExit class=LogExsit onClick="headLinkSwitch('Login');">ログアウト</A>
                         </div>

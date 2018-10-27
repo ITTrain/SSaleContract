@@ -94,4 +94,18 @@ public class SCommon_LOGINController {
             mv.setViewName("Common/MainMenu");
         return mv;
     }
+
+    /**
+     * <pre>
+     * [機 能]ヘルプ画面遷移処理
+     * [説 明]ヘルプ画面遷移します
+     * @param mv
+     * @return String 	遷移先
+     * </pre>
+     */
+    @RequestMapping("/Help")
+    public ModelAndView  help(ModelAndView mv) {
+            mv.setViewName("Common/Help");
+        return mv;
+    }
 }
