@@ -19,9 +19,12 @@
                            </span> &nbsp; <span id=ctl00_lblTime></span>
                         </div>
                         <div style="WIDTH: 50%; FLOAT: left">
-                            <A href="javascript:void(0);" id=ctl00_lnkHelp class=LogHelp onClick="headLinkSwitch('Help');" style="">ヘルプ</A>
-                            <A href="javascript:void(0);" id=ctl00_lnkReturn class=LogReturn onClick="headLinkSwitch('Common/MainMenu');">メイン画面</A>
-                            <A href="javascript:void(0);" id=ctl00_lnkExit class=LogExsit onClick="headLinkSwitch('Login');">ログアウト</A>
+                            <img src="${pageContext.request.contextPath}/static/Image/btnHelp.png"></img>
+                            <A href="javascript:void(0);" id=ctl00_lnkHelp onClick="headLinkSwitch('Help');" style="">ヘルプ</A>
+                            <img src="${pageContext.request.contextPath}/static/Image/btnReturn.png"></img>
+                            <A href="javascript:void(0);" id=ctl00_lnkReturn onClick="headLinkSwitch('Common/MainMenu');">メイン画面</A>
+                            <img src="${pageContext.request.contextPath}/static/Image/btnExsit.png"></img>
+                            <A href="javascript:void(0);" id=ctl00_lnkExit onClick="headLinkSwitch('Login');">ログアウト</A>
                         </div>
                     </div>
                 </div>
