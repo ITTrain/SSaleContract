@@ -1,56 +1,56 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD html 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <html>
-    <HEAD>
-        <TITLE>ログイン</TITLE>
+    <head>
+        <title>ログイン</title>
         <jsp:include page="/WEB-INF/jsp/Common/Meta.jsp"/>
         <script type="text/javascript" src="${pageContext.request.contextPath}/static/JS/Common/Login.js" charset="UTF-8"></script>
-    </HEAD>
-    <BODY class=IndexPage>
-        <DIV style="BACKGROUND-IMAGE: url(${pageContext.request.contextPath}/static/Image/login.jpg); POSITION: relative; WIDTH: 100%; BACKGROUND-REPEAT: no-repeat; HEIGHT: 750px; OVERFLOW: auto">
-            <DIV style="POSITION: relative; MARGIN-TOP: 80px; WIDTH: 400px; FLOAT: left; MARGIN-LEFT: 20px">
-                <DIV style="WIDTH: 325px; HEIGHT: 40px" id=SystemMessage class=panelGrid>
-                  <FIELDSET>
-                      <LEGEND>システム情報 </LEGEND>
-                          <SPAN style="COLOR: red" id=lblErrorMessage class=MsgStyle>${fn:replace(message.message, "[E]", "")}</SPAN>
-                      </FIELDSET>
-                </DIV>
-             </DIV>
+    </head>
+    <body class=IndexPage>
+        <div style="background-image: url(${pageContext.request.contextPath}/static/Image/login.jpg); position: relative; width: 100%; BACKGROUND-REPEAT: no-repeat; height: 750px; overflow: auto">
+            <div style="position: relative; margin-top: 80px; width: 400px; float: left; margin-left: 20px">
+                <div style="width: 325px; height: 40px" id=SystemMessage class=panelGrid>
+                  <fieldset>
+                      <legend>システム情報 </legend>
+                          <span style="COLOR: red" id=lblErrorMessage class=MsgStyle>${fn:replace(message.message, "[E]", "")}</span>
+                      </fieldset>
+                </div>
+             </div>
             <form name = "login_form" action="Login" method="post">
-              <DIV style="POSITION: relative; MARGIN: 326px 0px 0px 440px; WIDTH: 380px; HEIGHT: 180px">
-                  <DIV style="WIDTH: 100%; HEIGHT: 50px">
-                    <DIV style="POSITION: absolute; MARGIN-TOP: 32px; WIDTH: 120px; FLOAT: left; left: 9px; top: 4px;">
-                        <SPAN style="DISPLAY: inline-block; HEIGHT: 17px" id=lblUserId class=login-lbl>ユーザーID</SPAN> </DIV>
-                    <DIV style="MARGIN-TOP: 30px; WIDTH: 250px; FLOAT: right">
-                      <INPUT style="BORDER-BOTTOM: #e4e4e4 1px solid; BORDER-LEFT: #e4e4e4 1px solid;
-                      BACKGROUND-COLOR: #f7f7f7; WIDTH: 179px; BORDER-TOP: #e4e4e4 1px solid; BORDER-RIGHT: #e4e4e4 1px solid" id=txtUserId name=userId onChange="inputChage()" value="${userId}">
-                    </DIV>
-                  </DIV>
-               <DIV style="WIDTH: 100%; HEIGHT: 50px">
-                    <DIV style="POSITION: absolute; MARGIN-TOP: 20px; WIDTH: 120px; FLOAT: left; left: 10px; top: 54px;">
-                    <SPAN style="DISPLAY: inline-block; HEIGHT: 20px" id=lblPassword class=login-lbl>パスワード</SPAN> </DIV>
-                        <DIV style="MARGIN-TOP: 15px; WIDTH: 250px; FLOAT: right">
-                          <INPUT style="BORDER-BOTTOM: #e4e4e4 1px solid; BORDER-LEFT: #e4e4e4 1px solid;
-                          BACKGROUND-COLOR: #f7f7f7; WIDTH: 179px; BORDER-TOP: #e4e4e4 1px solid;
-                          BORDER-RIGHT: #e4e4e4 1px solid" id=txtPassword name=password type=password onChange="inputChage()"  value="${password}">
-                        </DIV>
-                    </DIV>
-                    <DIV style="WIDTH: 100%; HEIGHT: 50px">
-                        <DIV style="POSITION: absolute; MARGIN-TOP: 15px; WIDTH: 160px; FLOAT: left">
-                            <A href="javascript:void(0);" id="idsubmit" onclick="submit()">
-                            <img src="${pageContext.request.contextPath}/static/Image/login-dl.gif" style="BORDER-RIGHT-WIDTH: 0px; FLOAT: right;
-                            BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px" /> </A>
-                        </DIV>
-                        <DIV style="MARGIN-TOP: 15px; WIDTH: 160px; FLOAT: right">
-                          <A href="#" id="idreset" onclick="reset()"><img style="BORDER-RIGHT-WIDTH: 0px;
-                          BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px" id=btnCancel name=btnCancel src="${pageContext.request.contextPath}/static/Image/login-qx.gif"/></A>
-                        </DIV>
+              <div style="position: relative; margin: 326px 0px 0px 440px; width: 380px; height: 180px">
+                  <div style="width: 100%; height: 50px">
+                    <div style="position: absolute; margin-TOP: 32px; width: 120px; FLOAT: left; left: 9px; top: 4px;">
+                        <span style="DISPLAY: inline-block; height: 17px" id=lblUserId class=login-lbl>ユーザーID</span> </div>
+                    <div style="margin-TOP: 30px; width: 250px; float: right">
+                      <INPUT style="border-bottom: #e4e4e4 1px solid; border-left: #e4e4e4 1px solid;
+                      background-color: #f7f7f7; width: 179px; border-top: #e4e4e4 1px solid; border-right: #e4e4e4 1px solid" id=txtUserId name=userId onChange="inputChage()" value="${userId}">
+                    </div>
+                  </div>
+               <div style="width: 100%; height: 50px">
+                    <div style="position: absolute; margin-top: 20px; width: 120px; float: left; left: 10px; top: 54px;">
+                    <span style="display: inline-block; height: 20px" id=lblPassword class=login-lbl>パスワード</span> </div>
+                        <div style="margin-top: 15px; width: 250px; float: right">
+                          <input style="border-bottom: #e4e4e4 1px solid; border-left: #e4e4e4 1px solid;
+                          background-color: #f7f7f7; width: 179px; border-top: #e4e4e4 1px solid;
+                          border-right: #e4e4e4 1px solid" id=txtPassword name=password type=password onChange="inputChage()"  value="${password}">
+                        </div>
+                    </div>
+                    <div style="width: 100%; height: 50px">
+                        <div style="position: absolute; margin-top: 15px; width: 160px; float: left">
+                            <a href="javascript:void(0);" id="idsubmit" onclick="submit()">
+                            <img src="${pageContext.request.contextPath}/static/Image/login-dl.gif" style="border-right-width: 0px; float: right;
+                            border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" /> </a>
+                        </div>
+                        <div style="margin-top: 15px; width: 160px; float: right">
+                          <a href="#" id="idreset" onclick="reset()"><img style="BORDER-RIGHT-width: 0px;
+                          border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" id=btnCancel name=btnCancel src="${pageContext.request.contextPath}/static/Image/login-qx.gif"/></a>
+                        </div>
 
-                    </DIV>
-                </DIV>
+                    </div>
+                </div>
             </form>
-        </DIV>
-    </BODY>
+        </div>
+    </body>
 </html>

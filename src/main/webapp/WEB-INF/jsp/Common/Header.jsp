@@ -19,9 +19,19 @@
                            </span> &nbsp; <span id=ctl00_lblTime></span>
                         </div>
                         <div style="WIDTH: 50%; FLOAT: left">
-                            <A href="javascript:void(0);" id=ctl00_lnkHelp class=LogHelp onClick="headLinkSwitch('Help');" style="">ヘルプ</A>
-                            <A href="javascript:void(0);" id=ctl00_lnkReturn class=LogReturn onClick="headLinkSwitch('Common/MainMenu');">メイン画面</A>
-                            <A href="javascript:void(0);" id=ctl00_lnkExit class=LogExsit onClick="headLinkSwitch('Login');">ログアウト</A>
+
+                            <a href="javascript:void(0);" id=ctl00_lnkHelp onClick="headLinkSwitch('Help');" style="">
+                                <img src="${pageContext.request.contextPath}/static/Image/btnHelp.png"></img>
+                                ヘルプ
+                            </a>
+                            <a href="javascript:void(0);" id=ctl00_lnkReturn onClick="headLinkSwitch('Common/MainMenu');">
+                                <img src="${pageContext.request.contextPath}/static/Image/btnReturn.png"></img>
+                                メイン画面
+                            </a>
+                            <a href="javascript:void(0);" id=ctl00_lnkExit onClick="headLinkSwitch('Login');">
+                                <img src="${pageContext.request.contextPath}/static/Image/btnExsit.png"></img>
+                                ログアウト
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -55,7 +65,7 @@
             </div>
             <div style="TEXT-ALIGN: left; MARGIN-TOP: 0px; WIDTH: 30%; FLOAT: right; HEIGHT: 20px">
                 <div style="WIDTH: 325px; HEIGHT: 40px" id=ctl00_panelMsg class=panelGrid>
-                   <FIELDSET>
+                   <fieldset>
                        <LEGEND>システム情報 </LEGEND>&nbsp;
                        <c:choose>
                               <c:when test="${fn:contains(message.message,'I')}">
@@ -65,7 +75,7 @@
                                      <span style="COLOR: red" id=errorMessage class=MsgStyle>${fn:replace(message.message, "[E]", "")}</span>
                               </c:otherwise>
                        </c:choose>
-                   </FIELDSET>
+                   </fieldset>
                 </div>
             </div>
         </div>

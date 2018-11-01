@@ -8,7 +8,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/JS/bootstrap.min.js" charset="UTF-8"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/JS/common.js" charset="UTF-8"></script>
 
-<!-- CSS -->
+<!-- css -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/CSS/Index.css" type="text/css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/CSS/Style.css" type="text/css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/CSS/bootstrap.min.css" type="text/css"/>

@@ -1,14 +1,14 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<HTML>
-<HEAD>
-<TITLE>ユーザー検索</TITLE>
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/JS/User/UserSearch.js" charset="UTF-8"></script>
-</HEAD>
+<html>
+<head>
+<title>ユーザー検索</title>
+<script type="text/javascript" src="${pageContext.request.contextPath}/static/JS/User/UserSearch.js" charset="UTFtextbackgroundtext-alignimagealign8"></script>
+</head>
 <body>
 <!-- ヘッダー -->
-<DIV style="WIDTH: 1158px; HEIGHT: 150px">
+<div style="width: 1158px; height: 150px">
 <jsp:include page="../Common/Header.jsp"/>
 </DIV>
 <FORM style="TEXT-ALIGN: center" id="userSearchFrom" method=post action="usersearch">
@@ -20,49 +20,51 @@
 <br>
 <br>
 <DIV style="TEXT-ALIGN: left; WIDTH: 1158px">
-<DIV class=tbTitile><SPAN id=ctl00_mainContent_SearchText
-    class=inputlbl>検索条件</SPAN>
-</DIV>
-<DIV class=tbContent>
-    <TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0>
-        <TBODY>
-            <TR>
-                <TD style="WIDTH: 170px"><SPAN id=ctl00_mainContent_lblUserCode
-                    class=inputlbl>ユーザーID</SPAN><BR>
-                <INPUT id=ctl00_mainContent_txtUserCode class=inputText
-                    name="userId" maxLength=10></TD>
-                <TD style="WIDTH: 170px"><SPAN id=ctl00_mainContent_lblUserName
-                    class=inputlbl>ユーザー名</SPAN><BR>
-                <INPUT id=ctl00_mainContent_txtUserName class=inputText
-                    name="userName" maxLength=20></TD>
-                <TD style="WIDTH: 170px"><SPAN id=ctl00_mainContent_lblAcessGrp
-                    class=inputlbl>権限</SPAN><BR>
+<div class=tbTitile><span id=ctl00_mainContent_SearchText
+    class=inputlbl>検索条件</span>
+</div>
+<div class=tbContent>
+    <table style="width: 100%" cellSpacing=0 cellPadding=0>
+        <tbody>
+            <tr>
+                <td style="width: 170px"><span id=ctl00_mainContent_lblUserCode
+                    class=inputlbl>ユーザーID</span><br>
+                <input id=ctl00_mainContent_txtUserCode class=inputText
+                    name="userId" maxLength=10></td>
+                <td style="width: 170px"><span id=ctl00_mainContent_lblUserName
+                    class=inputlbl>ユーザー名</span><br>
+                <input id=ctl00_mainContent_txtUserName class=inputText
+                    name="userName" maxLength=20></td>
+                <td style="width: 170px"><span id=ctl00_mainContent_lblAcessGrp
+                    class=inputlbl>権限</span><br>
                 <select id="ctl00_mainContent_ddlAcessGrp" class=ddlBlack name="userRoot">
                     <option selected value=""></option>
                     <c:forEach items="${mstAuthorityInfoList}" var="c" varStatus="st">
                         <option value="${c.authorityCd}" <c:if test="${userInfo.authorityCd == c.authorityCd}"> selected</c:if>>${c.authorityName}</option>
                     </c:forEach>
                 </select>
-                </TD>
-                <TD><BR>
-                    <SPAN style="WIDTH: 133px; DISPLAY: inline-block" class=chkBox>
-                        <INPUT id=delFlag  type=checkbox >
-                        <LABEL for=ctl00_mainContent_chkVisible>削除フラグ含む</LABEL>
-                        <INPUT id=delFlagHidden name=delFlag type=hidden />
-                    </SPAN>
-                </TD>
-            </TR>
-        </TBODY>
-    </TABLE>
-</DIV>
-<DIV style="TEXT-ALIGN: right; WIDTH: 100%" class=btnContent>
-<a href="javascript:void(0)" class="btn" onClick="eventSwitch('UserSearch')"><center>検索</center></a>
-<a href="javascript:void(0)" class="btn" onClick="eventSwitch('UserAdd')"><center>追加</center>
-</a></DIV>
-<INPUT id=ctl00_hidTime name=ctl00$hidTime value=2014/02/17 15:08:36 type=hidden />
-</DIV>
-</FORM>
+                </td>
+                <td><br>
+                    <span style="width: 133px; DISPLAY: inline-block" class=chkBox>
+                        <input id=delFlag  type=checkbox >
+                        <label for=ctl00_mainContent_chkVisible>削除フラグ含む</label>
+                        <input id=delFlagHidden name=delFlag type=hidden />
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div style="TEXT-ALIGN: right; WIDTH: 100%" class=btnContent>
+    <a href="javascript:void(0)" class="btn" onClick="eventSwitch('UserSearch')">検索</a>
+    <c:if test="${sessionScope.loginUserInfo.userId == userInfo.userId || sessionScope.loginUserInfo.authorityCd == '00000'}">
+        <a href="javascript:void(0)" class="btn" onClick="eventSwitch('UserAdd')">追加</a>
+    </c:if>
+</a></div>
+<input id=ctl00_hidTime name=ctl00$hidTime value=2014/02/17 15:08:36 type=hidden />
+</div>
+</form>
 <!-- フッター -->
 <jsp:include page="../Common/Footer.jsp"/>
-</BODY>
-</HTML>
+</body>
+</html>
