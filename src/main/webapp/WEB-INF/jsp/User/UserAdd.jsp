@@ -12,7 +12,7 @@
 <div style="width: 1158px; height: 150px">
 <jsp:include page="../Common/Header.jsp"/>
 </div>
-<from style="TEXT-ALIGN: center" id=userForm method=post id=userForm method=post
+<form style="TEXT-ALIGN: center" id=userForm method=post id=userForm method=post
     name=userForm action="useradd">
 <div style="width: 1158px; height: 30px">
 <div
