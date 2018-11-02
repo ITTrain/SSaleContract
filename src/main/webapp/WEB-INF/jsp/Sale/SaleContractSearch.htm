@@ -1,15 +1,15 @@
 ﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
-<HEAD>
-<TITLE>販売契約検索</TITLE>
-<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
-<LINK rel=stylesheet type=text/css href="../CSS/Index.css">
-<LINK rel=stylesheet type=text/css href="../CSS/Style.css">
-</HEAD>
-<BODY onload=getTime(getTimeSub());>
-<FORM style="TEXT-ALIGN: center" method=post action="salecontractsearch">
-<DIV style="WIDTH: 1158px; HEIGHT: 150px">
-<SCRIPT language=javascript type=text/javascript>
+<head>
+<title>販売契約検索</title>
+<meta content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<link rel=stylesheet type=text/css href="../CSS/Index.css">
+<link rel=stylesheet type=text/css href="../CSS/Style.css">
+</head>
+<body onload=getTime(getTimeSub());>
+<form style="TEXT-ALIGN: center" method=post action="salecontractsearch">
+<div style="width: 1158px; height: 150px">
+<script language=javascript type=text/javascript>
     var timeClient = new Date();
     function getTimeSub() {
         var strTimeServer;
@@ -40,27 +40,27 @@
     function hide(id){
         document.getElementById(id).style.display='none';
     }
-</SCRIPT>
-<DIV style="TEXT-ALIGN: center">
-    <DIV style="BACKGROUND-IMAGE: url(../Image/bj.jpg); WIDTH: 1250px; BACKGROUND-REPEAT: repeat-x">
-        <DIV style="BACKGROUND-IMAGE: url(../Image/top.jpg); TEXT-ALIGN: left; MARGIN: auto; WIDTH: 92%; BACKGROUND-REPEAT: no-repeat; HEIGHT: 82px">
-            <DIV class=UserNotice>
-                <DIV style="WIDTH: 50%; FLOAT: left">
-                    <SPAN id=ctl00_lblUserID>ユーザー名：</SPAN><SPAN id=ctl00_lblUserName>
+</script>
+<div style="TEXT-ALIGN: center">
+    <div style="BACKGROUND-IMAGE: url(../Image/bj.jpg); width: 1250px; BACKGROUND-REPEAT: repeat-x">
+        <div style="BACKGROUND-IMAGE: url(../Image/top.jpg); TEXT-ALIGN: left; MARGIN: auto; width: 92%; BACKGROUND-REPEAT: no-repeat; height: 82px">
+            <div class=UserNotice>
+                <div style="width: 50%; float: left">
+                    <span id=ctl00_lblUserID>ユーザー名：</span><span id=ctl00_lblUserName>
                    
                    Admin
-                   </SPAN> &nbsp; <SPAN id=ctl00_lblTime></SPAN>
-                </DIV>
-                <DIV style="WIDTH: 50%; FLOAT: left">
+                   </span> &nbsp; <span id=ctl00_lblTime></span>
+                </div>
+                <div style="width: 50%; float: left">
                     <A id=ctl00_lnkHelp class=LogHelp onClick="return openHelpDoc();" href="javascript:__doPostBack('ctl00$lnkHelp','')">ヘルプ</A>
                     <A id=ctl00_lnkReturn class=LogReturn href="../MainMenu.htm">メイン画面</A> 
                     <A id=ctl00_lnkExit class=LogExsit href="../login.htm">ログアウト</A> 
-                </DIV>
-            </DIV>
-        </DIV>
-    </DIV>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="ddst" class="ddst">
-        <ul id="nav" style="BACKGROUND-IMAGE: url(../Image/001.jpg); PADDING-LEFT: 3%; WIDTH: 1250px; BACKGROUND-REPEAT: repeat-x">
+        <ul id="nav" style="BACKGROUND-IMAGE: url(../Image/001.jpg); PADDING-LEFT: 3%; width: 1250px; BACKGROUND-REPEAT: repeat-x">
             <li onMouseOver="show('nav_1');" onMouseOut="hide('nav_1')" ><a href="#">販売契約</a>
                 <ul id="nav_1">
                     <li><a href="SaleContractSearch.htm">販売契約検索</a></li>
@@ -86,29 +86,29 @@
             <li class="yy"></li>
         </ul>
     </div>
-</DIV>
-</DIV>
-<DIV style="WIDTH: 1158px; HEIGHT: 30px">
-    <DIV style="BACKGROUND-IMAGE: url(../Image/006.jpg); TEXT-ALIGN: left; MARGIN-TOP: 20px; TEXT-INDENT: 20px; WIDTH: 65%; BACKGROUND-REPEAT: no-repeat; FLOAT: left; HEIGHT: 28px"><SPAN
-        id=ctl00_lbltitle class=title>販売契約検索</SPAN>
-    </DIV>
-    <DIV style="TEXT-ALIGN: left; MARGIN-TOP: 20px; WIDTH: 30%; FLOAT: right; HEIGHT: 50px">
-        <DIV style="WIDTH: 354px" id=ctl00_panelMsg class=panelGrid>
-           <FIELDSET>
-               <LEGEND>システム情報 </LEGEND>&nbsp; 
-               <SPAN
+</div>
+</div>
+<div style="width: 1158px; height: 30px">
+    <div style="BACKGROUND-IMAGE: url(../Image/006.jpg); TEXT-ALIGN: left; MARGIN-TOP: 20px; TEXT-INDENT: 20px; width: 65%; BACKGROUND-REPEAT: no-repeat; float: left; height: 28px"><span
+        id=ctl00_lbltitle class=title>販売契約検索</span>
+    </div>
+    <div style="TEXT-ALIGN: left; MARGIN-TOP: 20px; width: 30%; float: right; height: 50px">
+        <div style="width: 354px" id=ctl00_panelMsg class=panelGrid>
+           <fieldset>
+               <legend>システム情報 </legend>&nbsp; 
+               <span
                   style="COLOR: red" id=ctl00_lblErrorMessage class=MsgStyle>
-               </SPAN>
-           </FIELDSET>
-        </DIV>
-    </DIV>
-</DIV>
-<DIV style="TEXT-ALIGN: left; WIDTH: 1158px">
-<DIV class=tbTitile><SPAN id=ctl00_mainContent_SearchText
-    class=inputlbl>検索条件</SPAN>
-</DIV>
+               </span>
+           </fieldset>
+        </div>
+    </div>
+</div>
+<div style="TEXT-ALIGN: left; width: 1158px">
+<div class=tbTitile><span id=ctl00_mainContent_SearchText
+    class=inputlbl>検索条件</span>
+</div>
 
-<DIV class=tbContent>
+<div class=tbContent>
 	<table style="width: 100%;" cellpadding="0" cellspacing="0">
 	<tr>
 	    <td style="width: 200px;">
@@ -183,16 +183,16 @@
 	    </td>
 	</tr>
 	</table>
-</DIV>
-<DIV style="TEXT-ALIGN: right; WIDTH: 100%" class=btnContent>
+</div>
+<div style="TEXT-ALIGN: right; width: 100%" class=btnContent>
 <a href="SaleContractList.htm" class="btn"><center>検索</center></a>
 <a href="SaleContractAdd.htm" class="btn"><center>追加</center></a>
-</DIV>
-<INPUT id=ctl00_hidTime name=ctl00$hidTime value=2014/02/17 15:08:36 type=hidden />
-</DIV>
-</FORM>
+</div>
+<input id=ctl00_hidTime name=ctl00$hidTime value=2014/02/17 15:08:36 type=hidden />
+</div>
+</form>
 
-<DIV id=CopyRight class=CopyRight><SPAN id=ctl00_rightPage>Wuxi NTT DATA Co., Ltd.</SPAN> </DIV>
+<div id=CopyRight class=CopyRight><span id=ctl00_rightPage>Wuxi NTT DATA Co., Ltd.</span> </div>
 
-</BODY>
+</body>
 </HTML>

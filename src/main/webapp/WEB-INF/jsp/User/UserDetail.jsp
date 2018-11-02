@@ -14,20 +14,20 @@
 <form style="TEXT-ALIGN: center" id=userForm method=post name=userForm action="userdetail?procflg=0&userId=232">
 <div style="width: 1158px; height: 30px">
 <div
-    style="BACKGROUND-IMAGE: url(${pageContext.request.contextPath}/static/Image/006.jpg); TEXT-ALIGN: left; MARGIN-TOP: 20px; TEXT-INDENT: 20px; WIDTH: 65%; BACKGROUND-REPEAT: no-repeat; FLOAT: left; HEIGHT: 28px"><SPAN
+    style="BACKGROUND-IMAGE: url(${pageContext.request.contextPath}/static/Image/006.jpg); TEXT-ALIGN: left; MARGIN-TOP: 20px; TEXT-INDENT: 20px; width: 65%; BACKGROUND-REPEAT: no-repeat; float: left; height: 28px"><span
     id=ctl00_lbltitle class=title>ユーザー詳細</span></div>
 </div>
-<DIV style="TEXT-ALIGN: left; WIDTH: 1158px">
+<div style="TEXT-ALIGN: left; width: 1158px">
 
-<div style="TEXT-ALIGN: right; WIDTH: 100%" class=btnContent>
+<div style="TEXT-ALIGN: right; width: 100%" class=btnContent>
     <c:if test="${sessionScope.loginUserInfo.userId == userInfo.userId || sessionScope.loginUserInfo.authorityCd == '00000'}">
         <a href="javascript:void(0)" class="btn" onClick="eventSwitch('UserUpdateInit')">編集</a>
     </c:if>
 <a href="javascript:void(0)" class="btn" onClick="eventSwitch('PullBack')">戻る</a>
 </div>
 <div style="width: 100%" id=ctl00_mainContent_BaseInfo class=panelGrid>
-<FIELDSET><LEGEND>基本情報 </LEGEND>
-<table style="PADDING-LEFT: 10px; WIDTH: 100%" border=0 cellSpacing=0 cellPadding=0>
+<fieldset><legend>基本情報 </legend>
+<table style="PADDING-LEFT: 10px; width: 100%" border=0 cellSpacing=0 cellPadding=0>
     <tbody>
         <tr>
             <td style="width: 170px"><span id=ctl00_mainContent_lblUserCode
@@ -73,9 +73,9 @@
         <tr>
             <td colSpan=3><span id=ctl00_mainContent_lblRemarks
                 class=inputlbl>備考</span><br>
-            <TEXTAREA style="width: 480px; height: 50px"
+            <textarea style="width: 480px; height: 50px"
                 id="memo" class=textBoxReadOnly readOnly
-                name="memo">${userInfo.memo}</TEXTAREA></td>
+                name="memo">${userInfo.memo}</textarea></td>
             <td><span style="width: 133px; DISPLAY: inlinetextbackgroundtext-alignimagealignblock" class=chkBox disabled>
                 <c:if test="${userInfo.delFlg == '0' }">
                        <input id=delFlg  type=checkbox value="${userInfo.delFlg}" disabled="disabled">
@@ -90,11 +90,11 @@
         </tr>
     </tbody>
 </table>
-</FIELDSET>
+</fieldset>
 </div>
 <br>
 <div style="width: 100%" id=ctl00_mainContent_Panel1 class=panelInfo>
-<table style="WIDTH: 100%; MARGIN-BOTTOM: 5px; MARGIN-LEFT: 5px; MARGIN-RIGHT: -5px" border=0 cellSpacing=0 cellPadding=0>
+<table style="width: 100%; MARGIN-BOTTOM: 5px; MARGIN-LEFT: 5px; MARGIN-RIGHT: -5px" border=0 cellSpacing=0 cellPadding=0>
     <tbody>
         <tr>
             <td style="width: 170px"><span id=ctl00_mainContent_lblCreateBy

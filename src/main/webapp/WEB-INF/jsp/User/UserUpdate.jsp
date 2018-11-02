@@ -11,25 +11,25 @@
 <div style="width: 1158px; height: 150px">
 <!-- ヘッダー -->
 <jsp:include page="../Common/Header.jsp"/>
-</DIV>
+</div>
 <form style="TEXT-ALIGN: center" id=userForm method=post
     name=userForm action=userupdate>
-<DIV style="WIDTH: 1158px; HEIGHT: 30px">
-<DIV
-    style="BACKGROUND-IMAGE: url(${pageContext.request.contextPath}/static/Image/006.jpg); TEXT-ALIGN: left; MARGIN-TOP: 20px; TEXT-INDENT: 20px; WIDTH: 65%; BACKGROUND-REPEAT: no-repeat; FLOAT: left; HEIGHT: 28px"><SPAN
-    id=ctl00_lbltitle class=title>ユーザー編集</SPAN></DIV>
-</DIV>
-<DIV style="TEXT-ALIGN: left; WIDTH: 1158px">
-<BR>
-<BR>
-<DIV style="TEXT-ALIGN: right">
+<div style="width: 1158px; height: 30px">
+<div
+    style="BACKGROUND-IMAGE: url(${pageContext.request.contextPath}/static/Image/006.jpg); TEXT-ALIGN: left; MARGIN-TOP: 20px; TEXT-INDENT: 20px; width: 65%; BACKGROUND-REPEAT: no-repeat; float: left; height: 28px"><span
+    id=ctl00_lbltitle class=title>ユーザー編集</span></div>
+</div>
+<div style="TEXT-ALIGN: left; width: 1158px">
+<br>
+<br>
+<div style="TEXT-ALIGN: right">
 <a href="javascript:void(0)" class="btn" onClick="eventSwitch('UserUpdate')"><center>更新</center></a>
 <a href="javascript:void(0)" class="btn" onClick="eventSwitch('PullBack')"><center>戻る</center></a>
 </div>
 <div style="width: 100%" id=ctl00_mainContent_BaseInfo class=panelGrid>
-<FIELDSET><LEGEND>基本情報 </LEGEND>
+<fieldset><legend>基本情報 </legend>
 
-<TABLE style="PADDING-LEFT: 10px; WIDTH: 100%" border=0 cellSpacing=0
+<table style="PADDING-LEFT: 10px; width: 100%" border=0 cellSpacing=0
     cellPadding=0>
     <tbody>
         <tr>
@@ -77,9 +77,9 @@
         <tr>
             <td colSpan=3><span id=ctl00_mainContent_lblRemarks
                 class=inputlbl>備考</span><br>
-            <TEXTAREA style="width: 480px; height: 50px"
+            <textarea style="width: 480px; height: 50px"
                 id=memo class=inputText
-                name="memo">${userInfo.memo}</TEXTAREA></td>
+                name="memo">${userInfo.memo}</textarea></td>
             <td>
                 <span style="width: 133px; DISPLAY: inlinetextbackgroundtext-alignimagealignblock" class=chkBox>
                 <c:if test="${userInfo.delFlg == '0' }">
@@ -97,13 +97,13 @@
         </tr>
     </tbody>
 </table>
-</FIELDSET>
+</fieldset>
 </div>
 <br>
 <div style="width: 100%" id=ctl00_mainContent_Panel1 class=panelInfo>
 
-<TABLE
-    style="WIDTH: 100%; MARGIN-BOTTOM: 5px; MARGIN-LEFT: 5px; MARGIN-RIGHT: -5px"
+<table
+    style="width: 100%; MARGIN-BOTTOM: 5px; MARGIN-LEFT: 5px; MARGIN-RIGHT: -5px"
     border=0 cellSpacing=0 cellPadding=0>
     <tbody>
         <tr>

@@ -105,7 +105,7 @@ public class SCommon_LOGINController {
      */
     @RequestMapping("/Help")
     public ModelAndView  help(ModelAndView mv) {
-            mv.setViewName("Common/Help");
+            mv.setViewName("Help/Help");
         return mv;
     }
 }

@@ -10,34 +10,30 @@
     <body onload=getTime(getTimeSub());>
         <form id="headForm" name="headForm" method="post" action="">
         <div style="TEXT-ALIGN: center">
-            <div style="BACKGROUND-IMAGE: url(${pageContext.request.contextPath}/static/Image/bj.jpg); WIDTH: 1250px; BACKGROUND-REPEAT: repeat-x">
-                <div style="BACKGROUND-IMAGE: url(${pageContext.request.contextPath}/static/Image/top.jpg); TEXT-ALIGN: left; MARGIN: auto; WIDTH: 92%; BACKGROUND-REPEAT: no-repeat; HEIGHT: 82px">
+            <div style="BACKGROUND-IMAGE: url(${pageContext.request.contextPath}/static/Image/bj.jpg); width: 1250px; BACKGROUND-REPEAT: repeat-x">
+                <div style="BACKGROUND-IMAGE: url(${pageContext.request.contextPath}/static/Image/top.jpg); TEXT-ALIGN: left; MARGIN: auto; width: 92%; BACKGROUND-REPEAT: no-repeat; height: 82px">
                     <div class=UserNotice>
-                        <div style="WIDTH: 50%; FLOAT: left">
-                            <span id=ctl00_lblUserID>ユーザー名：</span><span id=ctl00_lblUserName>
-                                ${sessionScope.loginUserInfo.userName}
-                           </span> &nbsp; <span id=ctl00_lblTime></span>
+                        <div style="width: 50%; float: left">
+                            <span id=ctl00_lblUserID>ユーザー名：</span>
+                            <span id=ctl00_lblUserName>${sessionScope.loginUserInfo.userName}</span> &nbsp;
+                            <span id=ctl00_lblTime></span>
                         </div>
-                        <div style="WIDTH: 50%; FLOAT: left">
-
-                            <a href="javascript:void(0);" id=ctl00_lnkHelp onClick="headLinkSwitch('Help');" style="">
-                                <img src="${pageContext.request.contextPath}/static/Image/btnHelp.png"></img>
-                                ヘルプ
+                        <div style="width: 50%; float: left">
+                            <a href="javascript:void(0);" id=ctl00_lnkHelp onClick="headLinkSwitch('Help');">
+                                <img src="${pageContext.request.contextPath}/static/Image/btnHelp.png"></img>ヘルプ
                             </a>
                             <a href="javascript:void(0);" id=ctl00_lnkReturn onClick="headLinkSwitch('Common/MainMenu');">
-                                <img src="${pageContext.request.contextPath}/static/Image/btnReturn.png"></img>
-                                メイン画面
+                                <img src="${pageContext.request.contextPath}/static/Image/btnReturn.png"></img>メイン画面
                             </a>
                             <a href="javascript:void(0);" id=ctl00_lnkExit onClick="headLinkSwitch('Login');">
-                                <img src="${pageContext.request.contextPath}/static/Image/btnExsit.png"></img>
-                                ログアウト
+                                <img src="${pageContext.request.contextPath}/static/Image/btnExsit.png"></img>ログアウト
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
             <div id="ddst" class="ddst">
-                <ul id="nav" style="BACKGROUND-IMAGE: url(${pageContext.request.contextPath}/static/Image/001.jpg); PADDING-LEFT: 3%; WIDTH: 1250px; BACKGROUND-REPEAT: repeat-x">
+                <ul id="nav" style="BACKGROUND-IMAGE: url(${pageContext.request.contextPath}/static/Image/001.jpg); PADDING-LEFT: 3%; width: 1250px; BACKGROUND-REPEAT: repeat-x">
                     <li onMouseOver="show('nav_1');" onMouseOut="hide('nav_1')" ><a href="#">販売契約</a>
                         <ul id="nav_1">
                             <li><a href="Sale/SaleContractSearch.htm">販売契約検索</a></li>
@@ -63,10 +59,10 @@
                     <li class="yy"></li>
                 </ul>
             </div>
-            <div style="TEXT-ALIGN: left; MARGIN-TOP: 0px; WIDTH: 30%; FLOAT: right; HEIGHT: 20px">
-                <div style="WIDTH: 325px; HEIGHT: 40px" id=ctl00_panelMsg class=panelGrid>
+            <div style="TEXT-ALIGN: left; MARGIN-TOP: 0px; width: 30%; float: right; height: 20px">
+                <div style="width: 325px; height: 40px" id=ctl00_panelMsg class=panelGrid>
                    <fieldset>
-                       <LEGEND>システム情報 </LEGEND>&nbsp;
+                       <legend>システム情報 </legend>&nbsp;
                        <c:choose>
                               <c:when test="${fn:contains(message.message,'I')}">
                                      <span style="COLOR: black" id=errorMessage class=MsgStyle>${fn:replace(message.message, "[I]", "")}</span>

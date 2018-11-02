@@ -16,7 +16,7 @@
     name=userForm action="useradd">
 <div style="width: 1158px; height: 30px">
 <div
-    style="BACKGROUND-IMAGE: url(${pageContext.request.contextPath}/static/Image/006.jpg); textbackgroundtext-alignimagealigntextbackgroundtext-alignimagealigntextbackgroundtext-alignimagealign: left; MARGINtextbackgroundtext-alignimagealignTOP: 20px; textbackgroundtext-alignimagealigntextbackgroundtext-alignimagealignINDENT: 20px; width: 65%; backgroundtext-alignimagebackgroundtext-alignimagealignREPEAT: notextbackgroundtext-alignimagealignrepeat; FLOAT: left; height: 28px"><span
+    style="BACKGROUND-IMAGE: url(${pageContext.request.contextPath}/static/Image/006.jpg); textbackgroundtext-alignimagealigntextbackgroundtext-alignimagealigntextbackgroundtext-alignimagealign: left; MARGINtextbackgroundtext-alignimagealignTOP: 20px; textbackgroundtext-alignimagealigntextbackgroundtext-alignimagealignINDENT: 20px; width: 65%; backgroundtext-alignimagebackgroundtext-alignimagealignREPEAT: notextbackgroundtext-alignimagealignrepeat; float: left; height: 28px"><span
     id=ctl00_lbltitle class=title>ユーザー登録</span></div>
 </div>
 <div style="TEXT-ALIGN: left; width: 1158px">
@@ -26,7 +26,7 @@
 <a href="javascript:void(0)" class="btn" onClick="eventSwitch('PullBack')"><center>戻る</center></a>
 </div>
 <div style="width: 100%" id=ctl00_mainContent_BaseInfo class=panelGrid>
-<FIELDSET><LEGEND>基本情報 </LEGEND>
+<fieldset><legend>基本情報 </legend>
 <table style="PADDING-LEFT:: 10px; width: 100%" border=0 cellSpacing=0
     cellPadding=0>
     <tbody>
@@ -73,8 +73,8 @@
          <tr>
             <td colSpan=3><span id=ctl00_mainContent_lblRemarks
                 class=inputlbl>備考</span><br>
-            <TEXTAREA style="width: 480px; height: 50px"
-                id="memo" class=inputText name="memo" >${userInfo.memo}</TEXTAREA>
+            <textarea style="width: 480px; height: 50px"
+                id="memo" class=inputText name="memo" >${userInfo.memo}</textarea>
             </td>
             <td><span style="width: 133px; DISPLAY: inlinetextbackgroundtext-alignimagealignblock"
                 class=chkBox disabled><input id=ctl00_mainContent_chkAbandom
@@ -86,12 +86,12 @@
         </tr>
     </tbody>
 </table>
-</FIELDSET>
+</fieldset>
 </div>
 <br>
 <div style="width: 100%" id=ctl00_mainContent_Panel1 class=panelInfo>
 <table
-    style="WIDTH: 100%; MARGIN-BOTTOM: 5px; MARGIN-LEFT: 5px; MARGIN-RIGHT: -5px"
+    style="width: 100%; MARGIN-BOTTOM: 5px; MARGIN-LEFT: 5px; MARGIN-RIGHT: -5px"
     border=0 cellSpacing=0 cellPadding=0>
     <tbody>
         <tr>

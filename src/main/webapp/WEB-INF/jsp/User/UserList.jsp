@@ -14,7 +14,7 @@
 <form style="TEXT-ALIGN: center" id=userForm method=post name=userForm action="usersearch">
 <div style=" width: 1158px; height: 30px">
     <div
-       style="BACKGROUND-IMAGE: url(${pageContext.request.contextPath}/static/Image/006.jpg); TEXT-ALIGN: left; MARGIN-TOP: 20px; TEXT-INDENT: 20px; width: 65%; BACKGROUND-REPEAT: no-repeat; FLOAT: left; height: 28px"><span
+       style="BACKGROUND-IMAGE: url(${pageContext.request.contextPath}/static/Image/006.jpg); TEXT-ALIGN: left; MARGIN-TOP: 20px; TEXT-INDENT: 20px; width: 65%; BACKGROUND-REPEAT: no-repeat; float: left; height: 28px"><span
        id=ctl00_lbltitle class=title>ユーザー一覧</span></div>
 </div>
 <br>
