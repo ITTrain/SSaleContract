@@ -29,6 +29,9 @@
         <if test="delFlag != '' and delFlag != null">
             AND user.del_flg = #{delFlag, jdbcType=VARCHAR}
         </if>
+        <if test="delFlag == null">
+            AND user.del_flg = '0'
+        </if>
     </trim>
   </sql>
   <sql id="orderBy">
@@ -141,7 +144,8 @@
         ,del_flg
     from tb_tr_user_info
     where user_id = #{userId}
-              and password=#{password}
+              and password = #{password}
+              and del_flg = '0'
   </select>
 
   <select id="selectUserInfo" resultMap="BaseResultMap">

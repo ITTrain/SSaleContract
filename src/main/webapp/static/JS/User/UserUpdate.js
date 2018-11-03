@@ -12,6 +12,10 @@
     function eventSwitch(eventId){
         var form = document.getElementById("userForm");
         if(eventId == 'UserUpdate'){
+            // 画面項目の入力チェック
+            if(!userInfoCheck()){
+                return;
+            }
             document.getElementById("createDate").value = "";
             document.getElementById("updateDate").value = "";
             var delFlg = document.getElementById("delFlg");

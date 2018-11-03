@@ -20,8 +20,6 @@
             <div style="text-align: left; width: 1158px">
                 <div style="width: 100%" id=ctl00_mainContent_MsgInfo class=panelGrid></div>
                 <div style="text-align: right; MARGIN-TOP: 8px; width: 100%; height: 400px"></div>
-
-                <input id=ctl00_hidTime name=ctl00$hidTime value=2014/02/18 16:07:51 type=hidden>
             </div>
         </form>
         <!-- フッター -->

@@ -20,26 +20,40 @@
             }else{
                 delFlagHidden.value = '0';
             }
+            form.submit();
         }
         if(eventId == 'UserAdd'){
             form.action = "UserAddInit";
+            form.submit();
         }
         // ユーザー「編集」リンク押下
         if(eventId == 'UserUpdateInit'){
             var updateUserId = document.getElementById("updateUserId");
             updateUserId.value = userId;
             form.action = "UserUpdateInit";
+            form.submit();
         }
         if(eventId == 'UserDelete'){
-            var updateUserId = document.getElementById("updateUserId");
-            updateUserId.value = userId;
-            form.action = "UserDelete";
+            if (deleteConfirmd()){
+                var updateUserId = document.getElementById("updateUserId");
+                updateUserId.value = userId;
+                form.action = "UserDelete";
+                form.submit();
+            }
         }
         if(eventId == 'UserDetail'){
             var updateUserId = document.getElementById("updateUserId");
             updateUserId.value = userId;
             form.action = "UserDetail";
+            form.submit();
         }
-
-        form.submit();
+    }
+    // 削除の確認ダイアログ
+    function deleteConfirmd() {
+            var msg = "このユーザーを削除でよろしいですか？";
+            if (confirm(msg)==true){
+                return true;
+            }else{
+                return false;
+            }
     }

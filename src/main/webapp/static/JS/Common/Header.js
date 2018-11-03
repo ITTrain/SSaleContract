@@ -50,6 +50,5 @@ function headLinkSwitch(headLink){
     if(headLink == 'Login'){
         form.action = "Login";
     }
-
     form.submit();
 }
