@@ -25,9 +25,8 @@
                         <span style="DISPLAY: inline-block; height: 17px" id=lblUserId class=login-lbl>ユーザーID</span>
                     </div>
                     <div style="margin-TOP: 30px; width: 250px; float: right">
-                        <input style="border-bottom: #e4e4e4 1px solid; border-left: #e4e4e4 1px solid;
-                            background-color: #f7f7f7; width: 179px; border-top: #e4e4e4 1px solid; border-right: #e4e4e4 1px solid"
-                            id=txtUserId name=userId onChange="inputChage()" value="${userId}">
+                        <input style="border-bottom: #e4e4e4 1px solid; border-left: #e4e4e4 1px solid; background-color: #f7f7f7; width: 179px; border-top: #e4e4e4 1px solid; border-right: #e4e4e4 1px solid"
+                            id=txtUserId name=userId onChange="inputChage()" value="${userId}" maxLength=10>
                     </div>
                   </div>
                <div style="width: 100%; height: 50px">
@@ -37,7 +36,7 @@
                         <div style="margin-top: 15px; width: 250px; float: right">
                             <input style="border-bottom: #e4e4e4 1px solid; border-left: #e4e4e4 1px solid;
                                 background-color: #f7f7f7; width: 179px; border-top: #e4e4e4 1px solid;border-right: #e4e4e4 1px solid"
-                                id=txtPassword name=password type=password onChange="inputChage()"  value="${password}">
+                                id=txtPassword name=password type=password onChange="inputChage()"  value="${password}"  maxLength=16>
                         </div>
                     </div>
                     <div style="width: 100%; height: 50px">

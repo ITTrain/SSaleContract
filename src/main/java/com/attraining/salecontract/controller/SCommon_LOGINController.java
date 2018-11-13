@@ -33,7 +33,6 @@ public class SCommon_LOGINController {
     @Autowired
     SUserService sUserService;
 
-
     /**
      * <pre>
      * [機 能]ユーザーログイン処理
@@ -45,9 +44,9 @@ public class SCommon_LOGINController {
      */
     @RequestMapping("/Login")
     public ModelAndView  getUser(String userId, String password, ModelAndView mv, HttpSession session) {
-        // 初回ログイン画面表示判断
+        // ログイン画面初回表示時の処理
         // ユーザーＩＤかつ、パスワードnullの場合
-        if(null == userId && null == password) {
+        if (null == userId && null == password) {
             // セッション中身の情報を削除
             session.removeAttribute("userName");
             // ログイン画面へ遷移設定
@@ -55,27 +54,26 @@ public class SCommon_LOGINController {
             return mv;
         }
 
-        // 処理ロジック
-        // ユーザ検索処理を行う
+        // 入力画面と一致のユーザIDレコードを検索する
         List<UserInfo> userInfoList = sUserService.getUserInfoList(userId,password);
-        // 件数>0場合
-        if (userInfoList.size() > 0) {
-            // メッセージを設定
-            mv.addObject("message", new Message("I", PropertiesFileLoader.getProperty("info.system.normal")));
-            // ユーザー名をセッションインスタンスに設定
-            session.setAttribute("loginUserInfo", userInfoList.get(0));
-            // メニュー画面遷移前処理
-            //mv.setView(new RedirectView("MainMenu"));
-            mv.setViewName("Common/MainMenu");
         // 返却件数=0の場合
-        }else {
+        if (userInfoList.size() == 0) {
             // メッセージを設定
             mv.addObject("message", new Message("E", PropertiesFileLoader.getProperty("errors.login_noexist")));
             mv.addObject("userId", userId);
             mv.addObject("password", password);
             // 画面IDを設定
             mv.setViewName("Common/Login");
-            // ログを出力
+        // 返却件数>0場合、メニュー画面遷移前処理
+        } else if (userInfoList.size() > 0) {
+            // メッセージを設定
+            mv.addObject("message", new Message("I", PropertiesFileLoader.getProperty("info.system.normal")));
+            // ユーザー名をセッションインスタンスに設定
+            session.setAttribute("loginUserInfo", userInfoList.get(0));
+            //mv.setView(new RedirectView("MainMenu"));
+            mv.setViewName("Common/MainMenu");
+        } else {
+            // 処理なし
         }
 
         return mv;

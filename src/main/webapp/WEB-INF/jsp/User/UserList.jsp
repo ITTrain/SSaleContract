@@ -66,7 +66,7 @@
                         <a href="javascript:void(0)" class="btn" onClick="eventSwitch('UserAdd')">追加</a>
                     </c:if>
                 </div>
-                <div style="height: 400px" class=gvContent>
+                <div style="height: 340px" class=gvContent>
                     <div>
                         <table style="width: 100%; BORDER-COLLAPSE: collapse" id=ctl00_mainContent_gvList border=1 rules=all cellSpacing=0 cellPadding=0>
                             <tbody>
@@ -112,6 +112,7 @@
                                                 </c:when>
                                                 <c:when test="${sessionScope.loginUserInfo.userId == userInfo.userId && sessionScope.loginUserInfo.authorityCd != '00000'}">
                                                     <a href="javascript:void(0)" id=ctl00_mainContent_gvList_ctl02_lnkEdit onClick="eventSwitch('UserUpdateInit', '${userInfo.userId}')">編集</a>
+                                                    <label>削除</label>
                                                 </c:when>
                                                 <c:otherwise>
                                                     <label>編集</label>
