@@ -55,8 +55,10 @@ public class SUser_UpdateController {
     public ModelAndView  userUpdateInit(ModelAndView mv, String updateUserId) {
         // 更新ユーザー情報取得
         UserInfo userInfo = sUserService.getUserInfoByPrimaryKey(updateUserId);
-        // ユーザー検索画面IDを設定
         mv.addObject("userInfo",userInfo);
+        //メッセージを初期化する
+        mv.addObject("message", new Message("I", PropertiesFileLoader.getProperty("info.userupdate_init")));
+        // ユーザー検索画面IDを設定
         mv.setViewName("User/UserUpdate");
         return mv;
     }

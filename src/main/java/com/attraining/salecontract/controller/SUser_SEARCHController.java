@@ -108,9 +108,14 @@ public class SUser_SEARCHController {
         if("info.userdelete_success".equals(session.getAttribute("result"))) {
             mv.addObject("message", new Message("I", PropertiesFileLoader.getProperty("info.userdelete_success")));
         }
+        // 削除処理失敗した場合
+        if("errors.userdelete_update".equals(session.getAttribute("result"))) {
+            String[] param = {session.getAttribute("param").toString()};
+            mv.addObject("message", new Message("E", PropertiesFileLoader.getProperty("errors.userdelete_update", param)));
+        }
         // 他画面の処理結果をクリアする
         session.removeAttribute("result");
-        
+
         // ユーザー検索画面IDを設定
         mv.setViewName("User/UserList");
         return mv;

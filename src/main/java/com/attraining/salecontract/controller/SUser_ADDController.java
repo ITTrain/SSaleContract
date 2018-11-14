@@ -38,8 +38,6 @@ import com.attraining.salecontract.service.SUserService;
 @Controller
 public class SUser_ADDController {
 
-//    @Autowired
-//    private SMstInfoService sMstInfoService;
     @Autowired
     private SUserService sUserService;
 
@@ -58,6 +56,7 @@ public class SUser_ADDController {
         UserInfo userInfo = new UserInfo();
         mv.addObject("userInfo", userInfo);
         //メッセージを初期化する
+        mv.addObject("message", new Message("I", PropertiesFileLoader.getProperty("info.useradd_init")));
         // ユーザー登録画面へ遷移する
         mv.setViewName("User/UserAdd");
         return mv;
@@ -94,7 +93,6 @@ public class SUser_ADDController {
         //Controller間パラメータ引き渡し
         attr.addFlashAttribute("param", "1");
         // ユーザー検索画面へ遷移する
-//        mv.setViewName("User/UserSearch");
         session.setAttribute("result", "info.useradd_success");
         return new ModelAndView("redirect:UserSearch");
 

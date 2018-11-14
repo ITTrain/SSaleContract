@@ -6,6 +6,7 @@ function eventSwitch(eventId){
     var form = document.getElementById("userForm");
     if(eventId == 'UserUpdateInit'){
         var userId = document.getElementById("userId").value;
+        var updateUserId = document.getElementById("updateUserId");
         updateUserId.value = userId;
         form.action = "UserUpdateInit";
         form.submit();
