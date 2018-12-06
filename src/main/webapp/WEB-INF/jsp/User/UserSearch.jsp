@@ -33,7 +33,7 @@
                                 </td>
                                 <td style="width: 170px">
                                     <span id=ctl00_mainContent_lblUserName class=inputlbl>ユーザー名</span><br>
-                                    <input id=ctl00_mainContent_txtUserName class=inputText name="userName" maxLength=20>
+                                    <input id=ctl00_mainContent_txtUserName class=inputText name="userName" maxLength=30>
                                 </td>
                                 <td style="width: 170px"><span id=ctl00_mainContent_lblAcessGrp class=inputlbl>権限</span><br>
                                     <select id="ctl00_mainContent_ddlAcessGrp" class=ddlBlack name="userRoot">
@@ -56,7 +56,7 @@
                 </div>
                 <div style="TEXT-ALIGN: right; width: 100%" class=btnContent>
                     <a href="javascript:void(0)" class="btn" onClick="eventSwitch('UserSearch')">検索</a>
-                    <c:if test="${sessionScope.loginUserInfo.userId == userInfo.userId || sessionScope.loginUserInfo.authorityCd == '00000'}">
+                    <c:if test="${sessionScope.loginUserInfo.authorityCd == '00000'}">
                         <a href="javascript:void(0)" class="btn" onClick="eventSwitch('UserAdd')">追加</a>
                     </c:if>
                 </div>
